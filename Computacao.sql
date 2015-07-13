@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.9
+-- version 4.0.4.1
 -- http://www.phpmyadmin.net
 --
--- Servidor: localhost
--- Tempo de Geração: 01/07/2015 às 01:06
--- Versão do servidor: 5.6.14
--- Versão do PHP: 5.5.6
+-- Máquina: 127.0.0.1
+-- Data de Criação: 13-Jul-2015 às 21:37
+-- Versão do servidor: 5.5.32
+-- versão do PHP: 5.4.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,15 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Banco de dados: `Computacao`
+-- Base de Dados: `computacao`
 --
+CREATE DATABASE IF NOT EXISTS `computacao` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `computacao`;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `wp_commentmeta`
+-- Estrutura da tabela `wp_commentmeta`
 --
 
 CREATE TABLE IF NOT EXISTS `wp_commentmeta` (
@@ -34,20 +36,12 @@ CREATE TABLE IF NOT EXISTS `wp_commentmeta` (
   PRIMARY KEY (`meta_id`),
   KEY `comment_id` (`comment_id`),
   KEY `meta_key` (`meta_key`(191))
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=3 ;
-
---
--- Fazendo dump de dados para tabela `wp_commentmeta`
---
-
-INSERT INTO `wp_commentmeta` (`meta_id`, `comment_id`, `meta_key`, `meta_value`) VALUES
-(1, 1, '_wp_trash_meta_status', '1'),
-(2, 1, '_wp_trash_meta_time', '1432780936');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `wp_comments`
+-- Estrutura da tabela `wp_comments`
 --
 
 CREATE TABLE IF NOT EXISTS `wp_comments` (
@@ -72,19 +66,12 @@ CREATE TABLE IF NOT EXISTS `wp_comments` (
   KEY `comment_date_gmt` (`comment_date_gmt`),
   KEY `comment_parent` (`comment_parent`),
   KEY `comment_author_email` (`comment_author_email`(10))
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=2 ;
-
---
--- Fazendo dump de dados para tabela `wp_comments`
---
-
-INSERT INTO `wp_comments` (`comment_ID`, `comment_post_ID`, `comment_author`, `comment_author_email`, `comment_author_url`, `comment_author_IP`, `comment_date`, `comment_date_gmt`, `comment_content`, `comment_karma`, `comment_approved`, `comment_agent`, `comment_type`, `comment_parent`, `user_id`) VALUES
-(1, 1, 'Sr. WordPress', '', 'https://wordpress.org/', '', '2015-05-27 23:03:46', '2015-05-27 23:03:46', 'Olá, Isto é um comentário.\nPara excluir um comentário, faça o login e veja os comentários de posts. Lá você terá a opção de editá-los ou excluí-los.', 0, 'trash', '', '', 0, 0);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `wp_links`
+-- Estrutura da tabela `wp_links`
 --
 
 CREATE TABLE IF NOT EXISTS `wp_links` (
@@ -108,7 +95,7 @@ CREATE TABLE IF NOT EXISTS `wp_links` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `wp_options`
+-- Estrutura da tabela `wp_options`
 --
 
 CREATE TABLE IF NOT EXISTS `wp_options` (
@@ -118,10 +105,10 @@ CREATE TABLE IF NOT EXISTS `wp_options` (
   `autoload` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'yes',
   PRIMARY KEY (`option_id`),
   UNIQUE KEY `option_name` (`option_name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=293 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=341 ;
 
 --
--- Fazendo dump de dados para tabela `wp_options`
+-- Extraindo dados da tabela `wp_options`
 --
 
 INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`) VALUES
@@ -221,14 +208,11 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (94, 'widget_archives', 'a:2:{i:2;a:3:{s:5:"title";s:0:"";s:5:"count";i:0;s:8:"dropdown";i:0;}s:12:"_multiwidget";i:1;}', 'yes'),
 (95, 'widget_meta', 'a:2:{i:2;a:1:{s:5:"title";s:0:"";}s:12:"_multiwidget";i:1;}', 'yes'),
 (96, 'sidebars_widgets', 'a:4:{s:19:"wp_inactive_widgets";a:2:{i:0;s:10:"archives-2";i:1;s:12:"categories-2";}s:7:"sidebar";a:4:{i:0;s:8:"search-2";i:1;s:14:"recent-posts-2";i:2;s:17:"recent-comments-2";i:3;s:6:"meta-2";}s:18:"orphaned_widgets_1";a:6:{i:0;s:8:"search-2";i:1;s:14:"recent-posts-2";i:2;s:17:"recent-comments-2";i:3;s:10:"archives-2";i:4;s:12:"categories-2";i:5;s:6:"meta-2";}s:13:"array_version";i:3;}', 'yes'),
-(98, 'cron', 'a:5:{i:1432797600;a:1:{s:20:"wp_maybe_auto_update";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}}i:1432811028;a:3:{s:16:"wp_version_check";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}s:17:"wp_update_plugins";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}s:16:"wp_update_themes";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}}i:1432854337;a:1:{s:19:"wp_scheduled_delete";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}i:1432864491;a:1:{s:30:"wp_scheduled_auto_draft_delete";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}s:7:"version";i:2;}', 'yes'),
+(98, 'cron', 'a:5:{i:1436828628;a:3:{s:16:"wp_version_check";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}s:17:"wp_update_plugins";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}s:16:"wp_update_themes";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}}i:1436828737;a:1:{s:19:"wp_scheduled_delete";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}i:1436838891;a:1:{s:30:"wp_scheduled_auto_draft_delete";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}i:1436858400;a:1:{s:20:"wp_maybe_auto_update";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}}s:7:"version";i:2;}', 'yes'),
 (100, '_transient_random_seed', 'b5a5d4a2f9706bbc2c71effd417e0e65', 'yes'),
 (101, 'nonce_key', 'E(oSFA(>7*to6H9P=Eax3{a(Va8f^?=(S8>([$k<w2thTFo6nRvfK0WsSPfv!J,?', 'yes'),
 (102, 'nonce_salt', 'aY?lVgP|*GZR~~dZV;<-k}gb.ADV`IOnvh<#>5Cncv|^uDksRoVZ./%?}TIlQvxv', 'yes'),
 (103, 'rewrite_rules', 'a:58:{s:48:".*wp-(atom|rdf|rss|rss2|feed|commentsrss2)\\.php$";s:18:"index.php?feed=old";s:20:".*wp-app\\.php(/.*)?$";s:19:"index.php?error=403";s:18:".*wp-register.php$";s:23:"index.php?register=true";s:32:"feed/(feed|rdf|rss|rss2|atom)/?$";s:27:"index.php?&feed=$matches[1]";s:27:"(feed|rdf|rss|rss2|atom)/?$";s:27:"index.php?&feed=$matches[1]";s:20:"page/?([0-9]{1,})/?$";s:28:"index.php?&paged=$matches[1]";s:41:"comments/feed/(feed|rdf|rss|rss2|atom)/?$";s:42:"index.php?&feed=$matches[1]&withcomments=1";s:36:"comments/(feed|rdf|rss|rss2|atom)/?$";s:42:"index.php?&feed=$matches[1]&withcomments=1";s:44:"search/(.+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:40:"index.php?s=$matches[1]&feed=$matches[2]";s:39:"search/(.+)/(feed|rdf|rss|rss2|atom)/?$";s:40:"index.php?s=$matches[1]&feed=$matches[2]";s:32:"search/(.+)/page/?([0-9]{1,})/?$";s:41:"index.php?s=$matches[1]&paged=$matches[2]";s:14:"search/(.+)/?$";s:23:"index.php?s=$matches[1]";s:47:"author/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:50:"index.php?author_name=$matches[1]&feed=$matches[2]";s:42:"author/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:50:"index.php?author_name=$matches[1]&feed=$matches[2]";s:35:"author/([^/]+)/page/?([0-9]{1,})/?$";s:51:"index.php?author_name=$matches[1]&paged=$matches[2]";s:17:"author/([^/]+)/?$";s:33:"index.php?author_name=$matches[1]";s:69:"([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})/feed/(feed|rdf|rss|rss2|atom)/?$";s:80:"index.php?year=$matches[1]&monthnum=$matches[2]&day=$matches[3]&feed=$matches[4]";s:64:"([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})/(feed|rdf|rss|rss2|atom)/?$";s:80:"index.php?year=$matches[1]&monthnum=$matches[2]&day=$matches[3]&feed=$matches[4]";s:57:"([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})/page/?([0-9]{1,})/?$";s:81:"index.php?year=$matches[1]&monthnum=$matches[2]&day=$matches[3]&paged=$matches[4]";s:39:"([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})/?$";s:63:"index.php?year=$matches[1]&monthnum=$matches[2]&day=$matches[3]";s:56:"([0-9]{4})/([0-9]{1,2})/feed/(feed|rdf|rss|rss2|atom)/?$";s:64:"index.php?year=$matches[1]&monthnum=$matches[2]&feed=$matches[3]";s:51:"([0-9]{4})/([0-9]{1,2})/(feed|rdf|rss|rss2|atom)/?$";s:64:"index.php?year=$matches[1]&monthnum=$matches[2]&feed=$matches[3]";s:44:"([0-9]{4})/([0-9]{1,2})/page/?([0-9]{1,})/?$";s:65:"index.php?year=$matches[1]&monthnum=$matches[2]&paged=$matches[3]";s:26:"([0-9]{4})/([0-9]{1,2})/?$";s:47:"index.php?year=$matches[1]&monthnum=$matches[2]";s:43:"([0-9]{4})/feed/(feed|rdf|rss|rss2|atom)/?$";s:43:"index.php?year=$matches[1]&feed=$matches[2]";s:38:"([0-9]{4})/(feed|rdf|rss|rss2|atom)/?$";s:43:"index.php?year=$matches[1]&feed=$matches[2]";s:31:"([0-9]{4})/page/?([0-9]{1,})/?$";s:44:"index.php?year=$matches[1]&paged=$matches[2]";s:13:"([0-9]{4})/?$";s:26:"index.php?year=$matches[1]";s:58:"[0-9]{4}/[0-9]{1,2}/[0-9]{1,2}/[^/]+/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:68:"[0-9]{4}/[0-9]{1,2}/[0-9]{1,2}/[^/]+/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:88:"[0-9]{4}/[0-9]{1,2}/[0-9]{1,2}/[^/]+/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:83:"[0-9]{4}/[0-9]{1,2}/[0-9]{1,2}/[^/]+/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:83:"[0-9]{4}/[0-9]{1,2}/[0-9]{1,2}/[^/]+/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:57:"([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})/([^/]+)/trackback/?$";s:85:"index.php?year=$matches[1]&monthnum=$matches[2]&day=$matches[3]&name=$matches[4]&tb=1";s:77:"([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:97:"index.php?year=$matches[1]&monthnum=$matches[2]&day=$matches[3]&name=$matches[4]&feed=$matches[5]";s:72:"([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:97:"index.php?year=$matches[1]&monthnum=$matches[2]&day=$matches[3]&name=$matches[4]&feed=$matches[5]";s:65:"([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})/([^/]+)/page/?([0-9]{1,})/?$";s:98:"index.php?year=$matches[1]&monthnum=$matches[2]&day=$matches[3]&name=$matches[4]&paged=$matches[5]";s:72:"([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})/([^/]+)/comment-page-([0-9]{1,})/?$";s:98:"index.php?year=$matches[1]&monthnum=$matches[2]&day=$matches[3]&name=$matches[4]&cpage=$matches[5]";s:57:"([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})/([^/]+)(/[0-9]+)?/?$";s:97:"index.php?year=$matches[1]&monthnum=$matches[2]&day=$matches[3]&name=$matches[4]&page=$matches[5]";s:47:"[0-9]{4}/[0-9]{1,2}/[0-9]{1,2}/[^/]+/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:57:"[0-9]{4}/[0-9]{1,2}/[0-9]{1,2}/[^/]+/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:77:"[0-9]{4}/[0-9]{1,2}/[0-9]{1,2}/[^/]+/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:72:"[0-9]{4}/[0-9]{1,2}/[0-9]{1,2}/[^/]+/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:72:"[0-9]{4}/[0-9]{1,2}/[0-9]{1,2}/[^/]+/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:64:"([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})/comment-page-([0-9]{1,})/?$";s:81:"index.php?year=$matches[1]&monthnum=$matches[2]&day=$matches[3]&cpage=$matches[4]";s:51:"([0-9]{4})/([0-9]{1,2})/comment-page-([0-9]{1,})/?$";s:65:"index.php?year=$matches[1]&monthnum=$matches[2]&cpage=$matches[3]";s:38:"([0-9]{4})/comment-page-([0-9]{1,})/?$";s:44:"index.php?year=$matches[1]&cpage=$matches[2]";s:27:".?.+?/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:37:".?.+?/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:57:".?.+?/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:52:".?.+?/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:52:".?.+?/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:20:"(.?.+?)/trackback/?$";s:35:"index.php?pagename=$matches[1]&tb=1";s:40:"(.?.+?)/feed/(feed|rdf|rss|rss2|atom)/?$";s:47:"index.php?pagename=$matches[1]&feed=$matches[2]";s:35:"(.?.+?)/(feed|rdf|rss|rss2|atom)/?$";s:47:"index.php?pagename=$matches[1]&feed=$matches[2]";s:28:"(.?.+?)/page/?([0-9]{1,})/?$";s:48:"index.php?pagename=$matches[1]&paged=$matches[2]";s:35:"(.?.+?)/comment-page-([0-9]{1,})/?$";s:48:"index.php?pagename=$matches[1]&cpage=$matches[2]";s:20:"(.?.+?)(/[0-9]+)?/?$";s:47:"index.php?pagename=$matches[1]&page=$matches[2]";}', 'yes'),
-(105, '_site_transient_update_core', 'O:8:"stdClass":4:{s:7:"updates";a:1:{i:0;O:8:"stdClass":10:{s:8:"response";s:6:"latest";s:8:"download";s:65:"https://downloads.wordpress.org/release/pt_BR/wordpress-4.2.2.zip";s:6:"locale";s:5:"pt_BR";s:8:"packages";O:8:"stdClass":5:{s:4:"full";s:65:"https://downloads.wordpress.org/release/pt_BR/wordpress-4.2.2.zip";s:10:"no_content";b:0;s:11:"new_bundled";b:0;s:7:"partial";b:0;s:8:"rollback";b:0;}s:7:"current";s:5:"4.2.2";s:7:"version";s:5:"4.2.2";s:11:"php_version";s:5:"5.2.4";s:13:"mysql_version";s:3:"5.0";s:11:"new_bundled";s:3:"4.1";s:15:"partial_version";s:0:"";}}s:12:"last_checked";i:1432767924;s:15:"version_checked";s:5:"4.2.2";s:12:"translations";a:0:{}}', 'yes'),
-(107, '_site_transient_update_plugins', 'O:8:"stdClass":5:{s:12:"last_checked";i:1432770695;s:7:"checked";a:2:{s:19:"akismet/akismet.php";s:5:"3.1.1";s:9:"hello.php";s:3:"1.6";}s:8:"response";a:0:{}s:12:"translations";a:0:{}s:9:"no_update";a:2:{s:19:"akismet/akismet.php";O:8:"stdClass":6:{s:2:"id";s:2:"15";s:4:"slug";s:7:"akismet";s:6:"plugin";s:19:"akismet/akismet.php";s:11:"new_version";s:5:"3.1.1";s:3:"url";s:38:"https://wordpress.org/plugins/akismet/";s:7:"package";s:56:"https://downloads.wordpress.org/plugin/akismet.3.1.1.zip";}s:9:"hello.php";O:8:"stdClass":6:{s:2:"id";s:4:"3564";s:4:"slug";s:11:"hello-dolly";s:6:"plugin";s:9:"hello.php";s:11:"new_version";s:3:"1.6";s:3:"url";s:42:"https://wordpress.org/plugins/hello-dolly/";s:7:"package";s:58:"https://downloads.wordpress.org/plugin/hello-dolly.1.6.zip";}}}', 'yes'),
-(110, '_site_transient_update_themes', 'O:8:"stdClass":4:{s:12:"last_checked";i:1432777790;s:7:"checked";a:5:{s:7:"TechMod";s:3:"1.0";s:12:"simple-catch";s:5:"2.7.4";s:13:"twentyfifteen";s:3:"1.2";s:14:"twentyfourteen";s:3:"1.4";s:14:"twentythirteen";s:3:"1.5";}s:8:"response";a:0:{}s:12:"translations";a:0:{}}', 'yes'),
 (111, 'auth_key', '6MYxO9|STQU`?ZlFly[7M9U}?2OGH!0lu2DV&.eY:;qe?bgF)g$yV?dd+7=y,}Y ', 'yes'),
 (112, 'auth_salt', 'DQ83Sk=%-y|`ae<?g60NV?Qx? =bJzF[$hMHL7N,<2!Rv)VMQVf-MO43|GZB]T]^', 'yes'),
 (113, 'logged_in_key', '#rQ<Oo*o/,YQy$)b[/W)N7;Q_!@!P?RP3Kp+3lf79PHWh$z#xF2|FSP1iglWce e', 'yes'),
@@ -281,31 +265,34 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (184, 'simplecatch_options', 'a:73:{s:20:"featured_logo_header";s:78:"http://localhost/Computacao/wp-content/themes/simple-catch/images/uecelogo.png";s:18:"remove_header_logo";s:1:"0";s:17:"remove_site_title";s:1:"0";s:23:"remove_site_description";s:1:"0";s:20:"featured_logo_footer";s:79:"http://localhost/Computacao/wp-content/themes/simple-catch/images/logo-foot.png";s:18:"remove_footer_logo";s:1:"1";s:8:"fav_icon";s:77:"http://localhost/Computacao/wp-content/themes/simple-catch/images/favicon.ico";s:15:"remove_fav_icon";s:1:"0";s:8:"web_clip";s:0:"";s:12:"color_scheme";s:7:"default";s:13:"heading_color";s:7:"#444444";s:10:"meta_color";s:7:"#999999";s:10:"text_color";s:7:"#555555";s:10:"link_color";s:7:"#000000";s:20:"widget_heading_color";s:7:"#666666";s:17:"widget_text_color";s:7:"#666666";s:11:"reset_color";s:1:"0";s:19:"exclude_slider_post";s:1:"0";s:19:"front_page_category";a:1:{i:0;s:1:"0";}s:14:"sidebar_layout";s:21:"no-sidebar-full-width";s:12:"reset_layout";s:1:"2";s:10:"slider_qty";s:1:"3";s:18:"select_slider_type";s:12:"image-slider";s:13:"enable_slider";s:22:"enable-slider-homepage";s:15:"featured_slider";a:0:{}s:27:"featured_image_slider_image";a:0:{}s:26:"featured_image_slider_link";a:0:{}s:27:"featured_image_slider_title";a:0:{}s:29:"featured_image_slider_content";a:0:{}s:19:"remove_noise_effect";s:1:"0";s:17:"transition_effect";s:4:"fade";s:16:"transition_delay";s:1:"4";s:19:"transition_duration";s:1:"1";s:15:"social_facebook";s:96:"https://www.facebook.com/pages/Ci%C3%AAncia-da-Computa%C3%A7%C3%A3o-UECE/429205967101321?fref=ts";s:14:"social_twitter";s:0:"";s:17:"social_googleplus";s:0:"";s:16:"social_pinterest";s:0:"";s:14:"social_youtube";s:0:"";s:12:"social_vimeo";s:0:"";s:15:"social_linkedin";s:0:"";s:17:"social_slideshare";s:0:"";s:17:"social_foursquare";s:0:"";s:13:"social_flickr";s:0:"";s:13:"social_tumblr";s:0:"";s:17:"social_deviantart";s:0:"";s:15:"social_dribbble";s:0:"";s:14:"social_myspace";s:0:"";s:16:"social_wordpress";s:0:"";s:10:"social_rss";s:0:"";s:16:"social_delicious";s:0:"";s:13:"social_lastfm";s:0:"";s:16:"social_instagram";s:0:"";s:13:"social_github";s:0:"";s:16:"social_vkontakte";s:0:"";s:14:"social_myworld";s:0:"";s:20:"social_odnoklassniki";s:0:"";s:16:"social_goodreads";s:0:"";s:12:"social_skype";s:0:"";s:17:"social_soundcloud";s:0:"";s:12:"social_email";s:0:"";s:10:"custom_css";s:0:"";s:19:"google_verification";s:0:"";s:18:"yahoo_verification";s:0:"";s:17:"bing_verification";s:0:"";s:15:"analytic_header";s:0:"";s:15:"analytic_footer";s:0:"";s:13:"more_tag_text";s:21:"Continue Lendo &rarr;";s:19:"search_display_text";s:0:"";s:18:"search_button_text";s:6:"Search";s:14:"excerpt_length";s:2:"30";s:8:"feed_url";s:0:"";s:11:"footer_code";s:190:"<div class="copyright">[footer-image] Copyright &copy; [the-year] <span>[site-link]</span>. All Right Reserved.</div><div class="powered-by">Powered by: [wp-link] | Theme: [theme-link]</div>";s:12:"reset_footer";s:1:"2";}', 'yes'),
 (185, '_transient_timeout_settings_errors', '1432773675', 'no'),
 (186, '_transient_settings_errors', 'a:1:{i:0;a:4:{s:7:"setting";s:7:"general";s:4:"code";s:16:"settings_updated";s:7:"message";s:23:"Configurações salvas.";s:4:"type";s:7:"updated";}}', 'no'),
-(260, '_transient_timeout_simplecatch_favicon', '1432860586', 'no'),
-(261, '_transient_simplecatch_favicon', '<link rel="shortcut icon" href="http://localhost/Computacao/wp-content/themes/simple-catch/images/favicon.ico" type="image/x-icon" />', 'no'),
-(262, '_transient_timeout_simplecatch_site_verification', '1432869162', 'no'),
-(263, '_transient_simplecatch_site_verification', '', 'no'),
-(264, '_transient_timeout_simplecatch_inline_css', '1432860590', 'no'),
-(265, '_transient_simplecatch_inline_css', '<!-- Ciência da Computação Custom CSS Styles -->\n<style type="text/css" media="screen">\n</style>\n', 'no'),
-(266, '_transient_timeout_simplecatch_webclip', '1432869162', 'no'),
-(267, '_transient_simplecatch_webclip', '', 'no'),
-(268, '_transient_timeout_simplecatch_headerdetails', '1432860591', 'no'),
-(269, '_transient_simplecatch_headerdetails', '<div class="logo-wrap"><div id="site-logo"><a href="http://localhost/Computacao/" title="Ciência da Computação"><img src="http://localhost/Computacao/wp-content/themes/simple-catch/images/uecelogo.png" alt="Ciência da Computação" /></a></div><div id="site-details"><h1 id="site-title"><a href="http://localhost/Computacao/" title="Ciência da Computação">Ciência da Computação</a></h1><h2 id="site-description"></h2></div><!-- .site-details --></div><!-- .logo-wrap -->', 'no'),
-(270, '_transient_timeout_simplecatch_headersocialnetworks', '1432860591', 'no'),
-(271, '_transient_simplecatch_headersocialnetworks', '\n			<ul class="social-profile"><li class="facebook"><a href="https://www.facebook.com/pages/Ci%C3%AAncia-da-Computa%C3%A7%C3%A3o-UECE/429205967101321?fref=ts" title="Ciência da Computação on Facebook" target="_blank">Ciência da Computação Facebook </a></li>\n			</ul>\n			<div class="row-end"></div>', 'no'),
-(272, '_transient_timeout_simplecatch_footerlogo', '1432869162', 'no'),
-(273, '_transient_simplecatch_footerlogo', '', 'no'),
-(274, '_transient_timeout_simplecatch_footercode', '1432869163', 'no'),
-(275, '_transient_simplecatch_footercode', '', 'no'),
 (278, 'nav_menu_options', 'a:2:{i:0;b:0;s:8:"auto_add";a:0:{}}', 'yes'),
 (286, 'category_children', 'a:0:{}', 'yes'),
-(291, '_site_transient_timeout_theme_roots', '1432783498', 'yes'),
-(292, '_site_transient_theme_roots', 'a:5:{s:7:"TechMod";s:7:"/themes";s:12:"simple-catch";s:7:"/themes";s:13:"twentyfifteen";s:7:"/themes";s:14:"twentyfourteen";s:7:"/themes";s:14:"twentythirteen";s:7:"/themes";}', 'yes');
+(319, '_site_transient_timeout_theme_roots', '1436818038', 'yes'),
+(320, '_site_transient_theme_roots', 'a:5:{s:7:"TechMod";s:7:"/themes";s:12:"simple-catch";s:7:"/themes";s:13:"twentyfifteen";s:7:"/themes";s:14:"twentyfourteen";s:7:"/themes";s:14:"twentythirteen";s:7:"/themes";}', 'yes'),
+(321, '_transient_timeout_simplecatch_favicon', '1436903178', 'no'),
+(322, '_transient_simplecatch_favicon', '<link rel="shortcut icon" href="http://localhost/Computacao/wp-content/themes/simple-catch/images/favicon.ico" type="image/x-icon" />', 'no'),
+(323, '_transient_timeout_simplecatch_site_verification', '1436903178', 'no'),
+(324, '_transient_simplecatch_site_verification', '', 'no'),
+(325, '_transient_timeout_simplecatch_inline_css', '1436903179', 'no'),
+(326, '_transient_simplecatch_inline_css', '<!-- Ciência da Computação Custom CSS Styles -->\n<style type="text/css" media="screen">\n</style>\n', 'no'),
+(327, '_transient_timeout_simplecatch_webclip', '1436903179', 'no'),
+(328, '_transient_simplecatch_webclip', '', 'no'),
+(329, '_transient_timeout_simplecatch_headerdetails', '1436903179', 'no'),
+(330, '_transient_simplecatch_headerdetails', '<div class="logo-wrap"><div id="site-logo"><a href="http://localhost/Computacao/" title="Ciência da Computação"><img src="http://localhost/Computacao/wp-content/themes/simple-catch/images/uecelogo.png" alt="Ciência da Computação" /></a></div><div id="site-details"><h1 id="site-title"><a href="http://localhost/Computacao/" title="Ciência da Computação">Ciência da Computação</a></h1><h2 id="site-description"></h2></div><!-- .site-details --></div><!-- .logo-wrap -->', 'no'),
+(331, '_transient_timeout_simplecatch_headersocialnetworks', '1436903179', 'no'),
+(332, '_transient_simplecatch_headersocialnetworks', '\r\n			<ul class="social-profile"><li class="facebook"><a href="https://www.facebook.com/pages/Ci%C3%AAncia-da-Computa%C3%A7%C3%A3o-UECE/429205967101321?fref=ts" title="Ciência da Computação on Facebook" target="_blank">Ciência da Computação Facebook </a></li>\r\n			</ul>\r\n			<div class="row-end"></div>', 'no'),
+(333, '_transient_timeout_simplecatch_footerlogo', '1436903179', 'no'),
+(334, '_transient_simplecatch_footerlogo', '', 'no'),
+(335, '_transient_timeout_simplecatch_footercode', '1436903179', 'no'),
+(336, '_transient_simplecatch_footercode', '', 'no'),
+(338, '_site_transient_update_core', 'O:8:"stdClass":4:{s:7:"updates";a:1:{i:0;O:8:"stdClass":10:{s:8:"response";s:6:"latest";s:8:"download";s:65:"https://downloads.wordpress.org/release/pt_BR/wordpress-4.2.2.zip";s:6:"locale";s:5:"pt_BR";s:8:"packages";O:8:"stdClass":5:{s:4:"full";s:65:"https://downloads.wordpress.org/release/pt_BR/wordpress-4.2.2.zip";s:10:"no_content";b:0;s:11:"new_bundled";b:0;s:7:"partial";b:0;s:8:"rollback";b:0;}s:7:"current";s:5:"4.2.2";s:7:"version";s:5:"4.2.2";s:11:"php_version";s:5:"5.2.4";s:13:"mysql_version";s:3:"5.0";s:11:"new_bundled";s:3:"4.1";s:15:"partial_version";s:0:"";}}s:12:"last_checked";i:1436816242;s:15:"version_checked";s:5:"4.2.2";s:12:"translations";a:1:{i:0;a:7:{s:4:"type";s:4:"core";s:4:"slug";s:7:"default";s:8:"language";s:5:"pt_BR";s:7:"version";s:5:"4.2.2";s:7:"updated";s:19:"2015-07-04 19:52:42";s:7:"package";s:64:"https://downloads.wordpress.org/translation/core/4.2.2/pt_BR.zip";s:10:"autoupdate";b:1;}}}', 'yes'),
+(339, '_site_transient_update_themes', 'O:8:"stdClass":4:{s:12:"last_checked";i:1436816244;s:7:"checked";a:5:{s:7:"TechMod";s:3:"1.0";s:12:"simple-catch";s:5:"2.7.4";s:13:"twentyfifteen";s:3:"1.2";s:14:"twentyfourteen";s:3:"1.4";s:14:"twentythirteen";s:3:"1.5";}s:8:"response";a:0:{}s:12:"translations";a:0:{}}', 'yes'),
+(340, '_site_transient_update_plugins', 'O:8:"stdClass":4:{s:12:"last_checked";i:1436816243;s:8:"response";a:1:{s:19:"akismet/akismet.php";O:8:"stdClass":6:{s:2:"id";s:2:"15";s:4:"slug";s:7:"akismet";s:6:"plugin";s:19:"akismet/akismet.php";s:11:"new_version";s:5:"3.1.3";s:3:"url";s:38:"https://wordpress.org/plugins/akismet/";s:7:"package";s:56:"https://downloads.wordpress.org/plugin/akismet.3.1.3.zip";}}s:12:"translations";a:0:{}s:9:"no_update";a:1:{s:9:"hello.php";O:8:"stdClass":6:{s:2:"id";s:4:"3564";s:4:"slug";s:11:"hello-dolly";s:6:"plugin";s:9:"hello.php";s:11:"new_version";s:3:"1.6";s:3:"url";s:42:"https://wordpress.org/plugins/hello-dolly/";s:7:"package";s:58:"https://downloads.wordpress.org/plugin/hello-dolly.1.6.zip";}}}', 'yes');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `wp_postmeta`
+-- Estrutura da tabela `wp_postmeta`
 --
 
 CREATE TABLE IF NOT EXISTS `wp_postmeta` (
@@ -319,11 +306,10 @@ CREATE TABLE IF NOT EXISTS `wp_postmeta` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=139 ;
 
 --
--- Fazendo dump de dados para tabela `wp_postmeta`
+-- Extraindo dados da tabela `wp_postmeta`
 --
 
 INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUES
-(1, 2, '_wp_page_template', 'default'),
 (2, 4, '_wp_attached_file', '2015/05/rsz_uecelogo.png'),
 (3, 4, '_wp_attachment_metadata', 'a:5:{s:5:"width";i:55;s:6:"height";i:53;s:4:"file";s:24:"2015/05/rsz_uecelogo.png";s:5:"sizes";a:0:{}s:10:"image_meta";a:11:{s:8:"aperture";i:0;s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";i:0;s:9:"copyright";s:0:"";s:12:"focal_length";i:0;s:3:"iso";i:0;s:13:"shutter_speed";i:0;s:5:"title";s:0:"";s:11:"orientation";i:0;}}'),
 (4, 5, '_wp_attached_file', '2015/05/uecelogo.png'),
@@ -340,17 +326,6 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 (17, 7, '_menu_item_xfn', ''),
 (18, 7, '_menu_item_url', 'http://localhost/Computacao/'),
 (19, 7, '_menu_item_orphaned', '1432773721'),
-(20, 8, '_menu_item_type', 'post_type'),
-(21, 8, '_menu_item_menu_item_parent', '0'),
-(22, 8, '_menu_item_object_id', '2'),
-(23, 8, '_menu_item_object', 'page'),
-(24, 8, '_menu_item_target', ''),
-(25, 8, '_menu_item_classes', 'a:1:{i:0;s:0:"";}'),
-(26, 8, '_menu_item_xfn', ''),
-(27, 8, '_menu_item_url', ''),
-(28, 8, '_menu_item_orphaned', '1432773722'),
-(56, 2, '_wp_trash_meta_status', 'publish'),
-(57, 2, '_wp_trash_meta_time', '1432778082'),
 (58, 13, '_edit_last', '1'),
 (59, 13, '_edit_lock', '1432781324:1'),
 (60, 13, '_wp_page_template', 'default'),
@@ -404,7 +379,7 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `wp_posts`
+-- Estrutura da tabela `wp_posts`
 --
 
 CREATE TABLE IF NOT EXISTS `wp_posts` (
@@ -439,19 +414,15 @@ CREATE TABLE IF NOT EXISTS `wp_posts` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=41 ;
 
 --
--- Fazendo dump de dados para tabela `wp_posts`
+-- Extraindo dados da tabela `wp_posts`
 --
 
 INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post_content`, `post_title`, `post_excerpt`, `post_status`, `comment_status`, `ping_status`, `post_password`, `post_name`, `to_ping`, `pinged`, `post_modified`, `post_modified_gmt`, `post_content_filtered`, `post_parent`, `guid`, `menu_order`, `post_type`, `post_mime_type`, `comment_count`) VALUES
 (1, 1, '2015-05-27 23:03:46', '2015-05-27 23:03:46', '<a href="http://localhost/Computacao/wp-content/uploads/2015/05/Página-em-construção.png"><img class="alignnone size-full wp-image-27" src="http://localhost/Computacao/wp-content/uploads/2015/05/Página-em-construção.png" alt="Página em construção" width="1056" height="400" /></a>\r\n\r\n&nbsp;\r\n\r\nBem vindo ao site institucional da Ciência da Computação da UECE. Atualmente estamos em construção.', 'Bem-vindo!', '', 'publish', 'open', 'open', '', 'ola-mundo', '', '', '2015-05-28 02:41:35', '2015-05-28 02:41:35', '', 0, 'http://localhost/Computacao/?p=1', 0, 'post', '', 0),
-(2, 1, '2015-05-27 23:03:46', '2015-05-27 23:03:46', 'Esta é uma página de exemplo. É diferente de um post porque ela ficará em um local e será exibida na navegação do seu site (na maioria dos temas). A maioria das pessoas começa com uma página de introdução aos potenciais visitantes do site. Ela pode ser assim:\n\n<blockquote>Olá! Eu sou um bike courrier de dia, ator amador à noite e este é meu blog. Eu moro em São Paulo, tenho um cachorro chamado Tonico e eu gosto de caipirinhas. (E de ser pego pela chuva.)</blockquote>\n\nou assim:\n\n<blockquote>A XYZ foi fundada em 1971 e desde então vem proporcionando produtos de qualidade a seus clientes. Localizada em Valinhos, XYZ emprega mais de 2.000 pessoas e faz várias contribuições para a comunidade local.</blockquote>\nComo um novo usuário do WordPress, você deve ir até o <a href="http://localhost/Computacao/wp-admin/">seu painel</a> para excluir essa página e criar novas páginas com seu próprio conteúdo. Divirta-se!', 'Página de Exemplo', '', 'trash', 'open', 'open', '', 'pagina-exemplo', '', '', '2015-05-28 01:54:42', '2015-05-28 01:54:42', '', 0, 'http://localhost/Computacao/?page_id=2', 0, 'page', '', 0),
-(3, 1, '2015-05-27 23:05:38', '0000-00-00 00:00:00', '', 'Rascunho automático', '', 'auto-draft', 'open', 'open', '', '', '', '', '2015-05-27 23:05:38', '0000-00-00 00:00:00', '', 0, 'http://localhost/Computacao/?p=3', 0, 'post', '', 0),
 (4, 1, '2015-05-28 00:24:58', '2015-05-28 00:24:58', '', 'rsz_uecelogo', '', 'inherit', 'open', 'open', '', 'rsz_uecelogo', '', '', '2015-05-28 00:24:58', '2015-05-28 00:24:58', '', 0, 'http://localhost/Computacao/wp-content/uploads/2015/05/rsz_uecelogo.png', 0, 'attachment', 'image/png', 0),
 (5, 1, '2015-05-28 00:24:58', '2015-05-28 00:24:58', '', 'uecelogo', '', 'inherit', 'open', 'open', '', 'uecelogo', '', '', '2015-05-28 00:24:58', '2015-05-28 00:24:58', '', 0, 'http://localhost/Computacao/wp-content/uploads/2015/05/uecelogo.png', 0, 'attachment', 'image/png', 0),
 (6, 1, '2015-05-28 00:25:10', '2015-05-28 00:25:10', 'http://localhost/Computacao/wp-content/uploads/2015/05/cropped-rsz_uecelogo.png', 'cropped-rsz_uecelogo.png', '', 'inherit', 'open', 'open', '', 'cropped-rsz_uecelogo-png', '', '', '2015-05-28 00:25:10', '2015-05-28 00:25:10', '', 0, 'http://localhost/Computacao/wp-content/uploads/2015/05/cropped-rsz_uecelogo.png', 0, 'attachment', 'image/png', 0),
 (7, 1, '2015-05-28 00:42:00', '0000-00-00 00:00:00', '', 'Home', '', 'draft', 'open', 'open', '', '', '', '', '2015-05-28 00:42:00', '0000-00-00 00:00:00', '', 0, 'http://localhost/Computacao/?p=7', 1, 'nav_menu_item', '', 0),
-(8, 1, '2015-05-28 00:42:01', '0000-00-00 00:00:00', ' ', '', '', 'draft', 'open', 'open', '', '', '', '', '2015-05-28 00:42:01', '0000-00-00 00:00:00', '', 0, 'http://localhost/Computacao/?p=8', 1, 'nav_menu_item', '', 0),
-(12, 1, '2015-05-28 01:54:42', '2015-05-28 01:54:42', 'Esta é uma página de exemplo. É diferente de um post porque ela ficará em um local e será exibida na navegação do seu site (na maioria dos temas). A maioria das pessoas começa com uma página de introdução aos potenciais visitantes do site. Ela pode ser assim:\n\n<blockquote>Olá! Eu sou um bike courrier de dia, ator amador à noite e este é meu blog. Eu moro em São Paulo, tenho um cachorro chamado Tonico e eu gosto de caipirinhas. (E de ser pego pela chuva.)</blockquote>\n\nou assim:\n\n<blockquote>A XYZ foi fundada em 1971 e desde então vem proporcionando produtos de qualidade a seus clientes. Localizada em Valinhos, XYZ emprega mais de 2.000 pessoas e faz várias contribuições para a comunidade local.</blockquote>\nComo um novo usuário do WordPress, você deve ir até o <a href="http://localhost/Computacao/wp-admin/">seu painel</a> para excluir essa página e criar novas páginas com seu próprio conteúdo. Divirta-se!', 'Página de Exemplo', '', 'inherit', 'open', 'open', '', '2-revision-v1', '', '', '2015-05-28 01:54:42', '2015-05-28 01:54:42', '', 2, 'http://localhost/Computacao/2015/05/28/2-revision-v1/', 0, 'revision', '', 0),
 (13, 1, '2015-05-28 01:56:56', '2015-05-28 01:56:56', '', 'Home', '', 'publish', 'open', 'open', '', 'home', '', '', '2015-05-28 01:56:56', '2015-05-28 01:56:56', '', 0, 'http://localhost/Computacao/?page_id=13', 0, 'page', '', 0),
 (14, 1, '2015-05-28 01:56:56', '2015-05-28 01:56:56', '', 'Home', '', 'inherit', 'open', 'open', '', '13-revision-v1', '', '', '2015-05-28 01:56:56', '2015-05-28 01:56:56', '', 13, 'http://localhost/Computacao/2015/05/28/13-revision-v1/', 0, 'revision', '', 0),
 (15, 1, '2015-05-28 01:57:37', '2015-05-28 01:57:37', '', 'Contato', '', 'publish', 'open', 'open', '', 'contato', '', '', '2015-05-28 01:57:37', '2015-05-28 01:57:37', '', 0, 'http://localhost/Computacao/?page_id=15', 0, 'page', '', 0),
@@ -482,7 +453,7 @@ INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `wp_terms`
+-- Estrutura da tabela `wp_terms`
 --
 
 CREATE TABLE IF NOT EXISTS `wp_terms` (
@@ -496,7 +467,7 @@ CREATE TABLE IF NOT EXISTS `wp_terms` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=3 ;
 
 --
--- Fazendo dump de dados para tabela `wp_terms`
+-- Extraindo dados da tabela `wp_terms`
 --
 
 INSERT INTO `wp_terms` (`term_id`, `name`, `slug`, `term_group`) VALUES
@@ -506,7 +477,7 @@ INSERT INTO `wp_terms` (`term_id`, `name`, `slug`, `term_group`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `wp_term_relationships`
+-- Estrutura da tabela `wp_term_relationships`
 --
 
 CREATE TABLE IF NOT EXISTS `wp_term_relationships` (
@@ -518,7 +489,7 @@ CREATE TABLE IF NOT EXISTS `wp_term_relationships` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Fazendo dump de dados para tabela `wp_term_relationships`
+-- Extraindo dados da tabela `wp_term_relationships`
 --
 
 INSERT INTO `wp_term_relationships` (`object_id`, `term_taxonomy_id`, `term_order`) VALUES
@@ -530,7 +501,7 @@ INSERT INTO `wp_term_relationships` (`object_id`, `term_taxonomy_id`, `term_orde
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `wp_term_taxonomy`
+-- Estrutura da tabela `wp_term_taxonomy`
 --
 
 CREATE TABLE IF NOT EXISTS `wp_term_taxonomy` (
@@ -546,7 +517,7 @@ CREATE TABLE IF NOT EXISTS `wp_term_taxonomy` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=3 ;
 
 --
--- Fazendo dump de dados para tabela `wp_term_taxonomy`
+-- Extraindo dados da tabela `wp_term_taxonomy`
 --
 
 INSERT INTO `wp_term_taxonomy` (`term_taxonomy_id`, `term_id`, `taxonomy`, `description`, `parent`, `count`) VALUES
@@ -556,7 +527,7 @@ INSERT INTO `wp_term_taxonomy` (`term_taxonomy_id`, `term_id`, `taxonomy`, `desc
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `wp_usermeta`
+-- Estrutura da tabela `wp_usermeta`
 --
 
 CREATE TABLE IF NOT EXISTS `wp_usermeta` (
@@ -570,7 +541,7 @@ CREATE TABLE IF NOT EXISTS `wp_usermeta` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=21 ;
 
 --
--- Fazendo dump de dados para tabela `wp_usermeta`
+-- Extraindo dados da tabela `wp_usermeta`
 --
 
 INSERT INTO `wp_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) VALUES
@@ -598,7 +569,7 @@ INSERT INTO `wp_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) VALU
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `wp_users`
+-- Estrutura da tabela `wp_users`
 --
 
 CREATE TABLE IF NOT EXISTS `wp_users` (
@@ -618,7 +589,7 @@ CREATE TABLE IF NOT EXISTS `wp_users` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=2 ;
 
 --
--- Fazendo dump de dados para tabela `wp_users`
+-- Extraindo dados da tabela `wp_users`
 --
 
 INSERT INTO `wp_users` (`ID`, `user_login`, `user_pass`, `user_nicename`, `user_email`, `user_url`, `user_registered`, `user_activation_key`, `user_status`, `display_name`) VALUES
