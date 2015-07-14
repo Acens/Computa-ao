@@ -169,7 +169,7 @@
             
         $this->admin_option('General', 
             'Favicon', 'favicon', 
-            'imageupload', get_template_directory_uri() . "/images/favicon.png", 
+            'imageupload', get_template_directory_uri() . "inc/images/favicon.png", 
             array('help' => "Enter the full url to your favicon file. Leave it blank if you don't want to use a favicon.")
         );
         
