@@ -1,0 +1,14 @@
+{% macro attr(text, placement = 'top') %}
+    {% spaceless %}
+        data-toggle="tooltip" data-placement="{{ placement }}" title="{{ text }}"
+    {% endspaceless %}
+{% endmacro %}
+
+{% macro icon(text, placement = 'top') %}
+    {% import _self as tooltip %}
+
+    {% spaceless %}
+        <i class="fa fa-fw fa-question-circle" {{ tooltip.attr(text, placement) }}></i>
+        <!-- /.fa fa-fw fa-question-circle -->
+    {% endspaceless %}
+{% endmacro %}

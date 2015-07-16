@@ -19,7 +19,7 @@ if ( post_password_required() ) {
 }
 ?>
 
-<div id="comments" class="comments-area">
+<!--<div id="comments" class="comments-area">
 
 	<?php // You can start editing here -- including this comment! ?>
 
@@ -39,7 +39,7 @@ if ( post_password_required() ) {
 		</nav><!-- #comment-nav-above -->
 		<?php endif; // check for comment navigation ?>
 
-		<ol class="comment-list">
+		<!--<ol class="comment-list">
 			<?php
 				wp_list_comments( array(
 					'style'      => 'ol',
@@ -48,7 +48,7 @@ if ( post_password_required() ) {
 			?>
 		</ol><!-- .comment-list -->
 
-		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through ?>
+		<!--<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through ?>
 		<nav id="comment-nav-below" class="comment-navigation" role="navigation">
 			<h1 class="screen-reader-text"><?php _e( 'Comment navigation', 'ares' ); ?></h1>
 			<div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', 'ares' ) ); ?></div>
@@ -56,7 +56,7 @@ if ( post_password_required() ) {
 		</nav><!-- #comment-nav-below -->
 		<?php endif; // check for comment navigation ?>
 
-	<?php endif; // have_comments() ?>
+	<!--<?php endif; // have_comments() ?>
 
 	<?php
 		// If comments are closed and there are comments, let's leave a little note, shall we?

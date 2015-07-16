@@ -1,0 +1,177 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en_US\n"
+"X-Generator: Poedit 1.7.6\n"
+
+msgid "An error has occurred"
+msgstr "Wystąpił błąd"
+
+msgid "Add new table"
+msgstr "Dodaj nową tabelę"
+
+msgid "Tables"
+msgstr "Tabele"
+
+msgid "The table with ID %d not exists."
+msgstr "Tabela o ID %d nie istnieje."
+
+msgid "Title"
+msgstr "Tytuł"
+
+msgid "Created"
+msgstr "Utworzony"
+
+msgid "Shortcode"
+msgstr "Shortcode"
+
+msgid "PHP"
+msgstr "PHP"
+
+msgid "Actions"
+msgstr "Działania"
+
+msgid "You have not any tables in this time."
+msgstr "Nie masz teraz żadnych tabel."
+
+msgid "Create your first table"
+msgstr "Stwórz swoją pierwszą tabelę"
+
+msgid "Edit table \"%s\""
+msgstr "Edytuj tabelę \"%s\""
+
+msgid "Table title"
+msgstr "Tytuł tabeli"
+
+msgid "Columns"
+msgstr "Kolumny"
+
+msgid "Rows"
+msgstr "Rzędy"
+
+msgid "Click to rename the table and hit [Enter]"
+msgstr "Kliknij żeby zmienić nazwę tabeli i naciśnij [Enter]"
+
+msgid "Save"
+msgstr "Zapisz"
+
+msgid "Delete"
+msgstr "Usuń"
+
+msgid "Settings"
+msgstr "Ustawienia"
+
+msgid "Editor"
+msgstr "Edytor"
+
+msgid "Preview"
+msgstr "Podgląd"
+
+msgid "Loading your table, please wait..."
+msgstr "Wczytywanie tabeli, zaczekaj..."
+
+msgid "Bold"
+msgstr "Pogrubienie"
+
+msgid "Italic"
+msgstr "Kursywa"
+
+msgid "Text color"
+msgstr "Kolor czcionki"
+
+msgid "Background color"
+msgstr "Kolor tła"
+
+msgid "Alignment"
+msgstr "Położenie"
+
+msgid "Vertical alignment"
+msgstr "Położenie w pionie"
+
+msgid "Table elements"
+msgstr "Elementy tabeli"
+
+msgid "Caption"
+msgstr "Podpis"
+
+msgid "Header"
+msgstr "Nagłówek"
+
+msgid "Footer"
+msgstr "Stopka"
+
+msgid "Features"
+msgstr "Funkcje"
+
+msgid "Auto width"
+msgstr "Automatyczna szerokość"
+
+msgid "Ordering"
+msgstr "Porządkowanie"
+
+msgid "Pagination"
+msgstr "Dziel na strony"
+
+msgid "Searching"
+msgstr "Wyszukiwanie"
+
+msgid "State saving"
+msgstr "Zapisywanie"
+
+msgid "State saving - restore table state on page reload."
+msgstr "Zapisywanie - przywróć tabelę po przeładowaniu strony."
+
+msgid "Info"
+msgstr "Info"
+
+msgid "Table information display field."
+msgstr "Pole wyświetlanie informacji o tabeli"
+
+msgid "Styling"
+msgstr "Style"
+
+msgid "Borders"
+msgstr "Krawędzie"
+
+msgid "Cell - adds border around all four sides of each cell, Row â adds border only over and under each row. (i.e. only for the rows)."
+msgstr "Komórka - dodaje krawędzie po 4 stronach komórki, Rząd dodaje tylko krawędzie nad i pod rzędem."
+
+msgid "Cell"
+msgstr "Komórka"
+
+msgid "Row"
+msgstr "Rząd"
+
+msgid "Compact"
+msgstr "Skompresuj"
+
+msgid "Reduce the amount of white-space."
+msgstr "Zmniejsz ilość pustego miejsca"
+
+msgid "Highlighting"
+msgstr "Podświetlanie"
+
+msgid "Row highlighting on mouse over."
+msgstr "Podświetlanie przy najechaniu kursorem."
+
+msgid "Disable wrapping"
+msgstr "Wyłącz zawijanie"
+
+msgid "Disable wrapping of content in the table, so all text in the cells is on a single line."
+msgstr "Wyłącz zawijanie wierszy, żeby cała zawartość komórki była wyświetlona w jednej linii."
+
+msgid "Highlight the order column"
+msgstr "Podświetl kolumnę szeregowaną"
+
+msgid "Row striping"
+msgstr "Oznaczanie szeregów"
+
+msgid "Note that the table may be minor changes to the style that has your theme."
+msgstr "Mogą wystąpić niewielkie różnice między tabelą a Twoim motywem."

@@ -1,0 +1,100 @@
+{% spaceless %}
+
+    {% set cols = 'A'..'Z' %}
+
+    <div class="supsystic-tables-wrap">
+        <table class="supsystic-table {{ table.settings.styling | keys | join(' ') }} {% if 'border' in table.settings.styling | keys %}{{ table.settings.styling.border }}{% endif %}" id="supsystic-table-{{ table.id }}" data-features="{{ table.settings.features | keys | json_encode }}">
+
+            {% if table.settings.elements.caption is defined %}
+                <caption>{{ table.title | title }}</caption>
+            {% endif %}
+
+
+            <thead>
+            <tr>
+                {% for column in table.rows | first %}
+                    {% for cell in column %}
+                        {% if table.settings.elements.head is defined %}
+                            <th
+                                    width="{{ cell.width }}"
+                                    {% if cell.comment is defined %}
+                                        title="{{ cell.comment }}"
+                                    {% endif %}
+                                    >
+                                {{ cell.data | raw }}
+                            </th>
+                        {% else %}
+                            <th>&nbsp;</th>
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
+            </tr>
+            </thead>
+
+
+            {% if table.settings.elements.foot is defined %}
+                <tfoot>
+                <tr>
+                    {% for column in table.rows | first %}
+                        {% for cell in column %}
+                            <th width="{{ cell.width }}">{{ cell.data | raw }}</th>
+                        {% endfor %}
+                    {% endfor %}
+                </tr>
+                </tfoot>
+            {% endif %}
+
+            <tbody>
+            {% for row in table.rows | slice(table.settings.elements.head or table.settings.elements.foot ? 1 : 0) %}
+                {% set rowNumber = loop.index + (table.settings.elements.head or table.settings.elements.foot ? 1 : 0) %}
+                {% spaceless %}
+                    <tr {% if row.height != 'NaN' and row.height | length > 1 %}style="height: {{ row.height }}px"{% endif %}>
+                        {% for cell in row.cells %}
+                            {% set position = { 'y': rowNumber - 1, 'x': loop.index0  } %}
+                            <td
+                                    id="{{ cols[loop.index0] ~ rowNumber }}"
+                                    class="{{ cell.meta | join(' ') | trim }}"
+                                    data-y="{{ position.y }}"
+                                    data-x="{{ position.x }}"
+                                    {% if cell.data[:1] == '=' %}
+                                        data-formula="{{ cell.data | slice(1) }}"
+                                    {% endif %}
+                                    {% if cell.comment is defined %}
+                                        title="{{ cell.comment }}"
+                                    {% endif %}
+                                    {% if cell.hidden == 1 %}
+                                        {% set display = 'none' %}
+                                        {% set colspan = 1 %}
+                                        {% set rowspan = 1 %}
+
+                                        {% for mergedCell in table.meta.mergedCells %}
+                                            {% if mergedCell.row == position.y and mergedCell.col == position.x %}
+                                                {% set display = 'table-cell' %}
+                                                {% set colspan = mergedCell.colspan %}
+                                                {% set rowspan = mergedCell.rowspan %}
+                                            {% endif %}
+                                        {% endfor %}
+
+                                        style="display: {{ display }}"
+                                        colspan="{{ colspan }}"
+                                        rowspan="{{ rowspan }}"
+                                    {% endif %}>
+                                {{ cell.data | raw }}
+                            </td>
+                        {% endfor %}
+                    </tr>
+                {% endspaceless %}
+            {% endfor %}
+            </tbody>
+
+        </table>
+        <!-- /#supsystic-table-{{ table.id }}.supsystic-table -->
+
+        <div id="supsystic-table-{{ table.id }}-css" style="display: none;">{{ table.meta.css }}</div>
+    </div>
+    <!-- /.supsystic-tables-wrap -->
+
+    <!-- Tables Generator by Supsystic -->
+    <!-- Version: {{ environment.getConfig().get('plugin_version') }} -->
+    <!-- http://supsystic.com/ -->
+{% endspaceless %}

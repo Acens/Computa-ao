@@ -1,0 +1,512 @@
+{% extends 'layout.twig' %}
+
+{% macro checked(option) %}
+    {% if option is defined and option == 'on' %}
+        checked="checked"
+    {% endif %}
+{% endmacro %}
+
+
+
+{% block content %}
+
+    {% import _self as checkbox %}
+    {% import '@ui/tooltip.twig' as tooltip %}
+
+    <div class="supsystic-item tables-view">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="table-title-wrap">
+                        <h2 class="table-title" contenteditable="true"
+                            data-toggle="tooltip"
+                            data-placement="bottom"
+                            data-table-title="{{ table.title }}"
+                            title="{{ environment.translate('Click to rename the table and hit [Enter]') }}">
+                            {{ table.title }}
+                        </h2>
+
+                        <div class="table-buttons">
+                            <div class="table-buttons-left">
+                                <button id="buttonSave" class="button">
+                                    {{ environment.translate('Save') }}
+                                </button>
+                                <!-- /#buttonSave.button -->
+                                <button id="buttonDelete" class="button">
+                                    {{ environment.translate('Delete') }}
+                                </button>
+                                <!-- /#buttonDelete.button -->
+                            </div>
+                            <!-- /.table-buttons-left -->
+                            <div class="table-buttons-right"></div>
+                            <!-- /.table-buttons-right -->
+                        </div>
+                        <!-- /.table-buttons -->
+                        <div class="clear"></div>
+                        <!-- /.clear -->
+                    </div>
+                    <!-- /.table-title-wrap -->
+                </div>
+                <!-- /.col-xs-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-xs-12">
+                    <ul class="subsubsub">
+                        <li>
+                            <a href="#row-tab-settings" class="current button">
+                                <i class="fa fa-fw fa-wrench"></i>
+                                <!-- /.fa fa-fw fa-wrench -->
+                                {{ environment.translate('Settings') }}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#row-tab-editor" class="button">
+                                <i class="fa fa-fw fa-th"></i>
+                                <!-- /.fa fa-fw fa-th -->
+                                {{ environment.translate('Editor') }}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#row-tab-preview" class="button">
+                                <i class="fa fa-fw fa-eye"></i>
+                                <!-- /.fa fa-fw fa-eye -->
+                                {{ environment.translate('Preview') }}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#row-tab-css" class="button">
+                                <i class="fa fa-fw fa-code"></i>
+                                {{ environment.translate('CSS') }}
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.col-xs-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row row-tab" id="row-tab-editor">
+                <div class="col-xs-12">
+
+                    <div id="loadingProgress">
+                        <p class="description">
+                            <i class="fa fa-fw fa-spin fa-circle-o-notch"></i>
+                            <!-- /.fa fa-fw fa-spin fa-circle-o-notch -->
+                            {{ environment.translate('Loading your table, please wait...') }}
+                        </p>
+                        <!-- /.description -->
+                    </div>
+                    <!-- /#loadingProgress -->
+
+                    <div id="tableToolbar">
+                        <ul>
+                            <li>
+                                <button {{ tooltip.attr(environment.translate('Rows')) }} data-toolbar="#toolbar-rows">
+                                    <i class="fa fa-fw fa-th-list"></i>
+                                    <!-- /.fa fa-fw fa-th-list -->
+                                </button>
+                                <div id="toolbar-rows" class="toolbar-content">
+                                    <a href="#" data-method="row">
+                                        <i class="fa fa-fw fa-plus"></i>
+                                        <!-- /.fa fa-fw fa-plus -->
+                                    </a>
+                                    <a href="#" data-method="remove_row">
+                                        <i class="fa fa-fw fa-trash-o"></i>
+                                        <!-- /.fa fa-fw fa-trash-o -->
+                                    </a>
+                                </div>
+                                <!-- /#toolbar-rows -->
+                            </li>
+                            <li>
+                                <button {{ tooltip.attr(environment.translate('Columns')) }} data-toolbar="#toolbar-cols">
+                                    <i class="fa fa-fw fa-th-large"></i>
+                                    <!-- /.fa fa-fw fa-th-large -->
+                                </button>
+                                <div id="toolbar-cols" class="toolbar-content">
+                                    <a href="#" data-method="column">
+                                        <i class="fa fa-fw fa-plus"></i>
+                                        <!-- /.fa fa-fw fa-plus -->
+                                    </a>
+                                    <a href="#" data-method="remove_col">
+                                        <i class="fa fa-fw fa-trash-o"></i>
+                                        <!-- /.fa fa-fw fa-trash-o -->
+                                    </a>
+                                </div>
+                                <!-- /#toolbar-cols -->
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <button {{ tooltip.attr(environment.translate('Bold')) }} data-method="bold">
+                                    <i class="fa fa-fw fa-bold"></i>
+                                    <!-- /.fa fa-fw fa-bold -->
+                                </button>
+                            </li>
+                            <li>
+                                <button {{ tooltip.attr(environment.translate('Italic')) }} data-method="italic">
+                                    <i class="fa fa-fw fa-italic"></i>
+                                    <!-- /.fa fa-fw fa-italic -->
+                                </button>
+                            </li>
+                            <li>
+                                <button {{ tooltip.attr(environment.translate('Text color')) }} id="textColor">
+                                    <i class="fa fa-fw fa-font"></i>
+                                    <!-- /.fa fa-fw fa-file-text-o -->
+                                </button>
+                            </li>
+                            <li>
+                                <button {{ tooltip.attr(environment.translate('Background color')) }} id="bgColor">
+                                    <i class="fa fa-fw fa-tint"></i>
+                                    <!-- /.fa fa-fw fa-tint -->
+                                </button>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <button {{ tooltip.attr(environment.translate('Alignment')) }} data-toolbar="#toolbar-alignment">
+                                    <i class="fa fa-fw fa-align-left"></i>
+                                    <!-- /.fa fa-fw fa-align-left -->
+                                </button>
+                                <div id="toolbar-alignment" class="toolbar-content">
+                                    <a href="#" data-method="left">
+                                        <i class="fa fa-fw fa-align-left"></i>
+                                        <!-- /.fa fa-fw fa-align-left -->
+                                    </a><br/>
+                                    <a href="#" data-method="center">
+                                        <i class="fa fa-fw fa-align-center"></i>
+                                        <!-- /.fa fa-fw fa-align-center -->
+                                    </a><br/>
+                                    <a href="#" data-method="right">
+                                        <i class="fa fa-fw fa-align-right"></i>
+                                        <!-- /.fa fa-fw fa-align-right -->
+                                    </a>
+                                </div>
+                                <!-- /#toolbar-alignment -->
+                            </li>
+                            <li>
+                                <button {{ tooltip.attr(environment.translate('Vertical alignment')) }} data-toolbar="#toolbar-alignment-vertical">
+                                    <i class="fa fa-fw fa-align-left fa-rotate-90"></i>
+                                    <!-- /.fa fa-fw fa-align-left fa-rotate-90 -->
+                                </button>
+                                <div id="toolbar-alignment-vertical" class="toolbar-content">
+                                    <a href="#" data-method="top">
+                                        <sup><i class="fa fa-fw fa-align-center"></i></sup>
+                                        <!-- /.fa fa-fw fa-align-center -->
+                                    </a>
+                                    <a href="#" data-method="middle">
+                                        <small><i class="fa fa-fw fa-align-center"></i></small>
+                                        <!-- /.fa fa-fw fa-align-center -->
+                                    </a>
+                                    <a href="#" data-method="bottom">
+                                        <sub style="bottom: -.6em"><i class="fa fa-fw fa-align-center"></i></sub>
+                                        <!-- /.fa fa-fw fa-align-right -->
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <button {{ tooltip.attr(environment.translate('Create a link')) }} data-method="link">
+                                    <i class="fa fa-fw fa-link"></i>
+                                </button>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <button {{ tooltip.attr(environment.translate('Insert picture')) }} data-method="picture">
+                                    <i class="fa fa-fw fa-picture-o"></i>
+                                </button>
+                            </li>
+                        </ul>
+                        {#<ul>#}
+                            {#<li>#}
+                                {#<button {{ tooltip.attr(environment.translate('Comment')) }} data-toolbar="#toolbar-comment">#}
+                                    {#<i class="fa fa-fw fa-comment"></i>#}
+                                {#</button>#}
+                                {#<div id="toolbar-comment" class="toolbar-content">#}
+                                    {#<a href="#" data-method="addComment">#}
+                                        {#<i class="fa fa-fw fa-plus"></i>#}
+                                    {#</a>#}
+                                    {#<a href="#" data-method="removeComment">#}
+                                        {#<i class="fa fa-fw fa-trash-o"></i>#}
+                                    {#</a>#}
+                                {#</div>#}
+                            {#</li>#}
+                        {#</ul>#}
+                    </div>
+                    <!-- /#tableToolbar -->
+
+                    <div id="formulaEditor">
+                        <span class="formula-icon">
+                            <em class="function">f</em>(&times;)
+                        </span>
+                        <!-- /.formula-icon -->
+                        <input type="text" id="formula"/>
+                        <!-- /#formula -->
+                        <div class="clear"></div>
+                        <!-- /.clear -->
+                    </div>
+                    <!-- /#formulaEditor -->
+
+                    <div id="tableEditor"></div>
+                    <!-- /#tableEditor -->
+                </div>
+                <!-- /.col-xs-12 -->
+            </div>
+            <!-- /.row -->
+            <form id="settings">
+                <div class="row row-tab" id="row-tab-settings">
+                    <div class="col-sm-4 col-xs-12">
+                        <h3>{{ environment.translate('Table elements') }}</h3>
+                        <table class="form-table">
+                            <tr>
+                                <th scope="row">
+                                    <label for="table-elements-caption">
+                                        {{ environment.translate('Caption') }}
+                                    </label>
+                                </th>
+                                <td>
+                                    <input type="checkbox" name="elements[caption]"
+                                            {{ checkbox.checked(table.settings.elements.caption) }}
+                                           id="table-elements-caption"/>
+                                    <!-- /#table-elements-caption -->
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <label for="table-elements-head">
+                                        {{ environment.translate('Header') }}
+                                    </label>
+                                </th>
+                                <td>
+                                    <input type="checkbox" name="elements[head]"
+                                            {{ checkbox.checked(table.settings.elements.head) }}
+                                           id="table-elements-head"/>
+                                    <!-- /#table-elements-head -->
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <label for="table-elements-foot">
+                                        {{ environment.translate('Footer') }}
+                                    </label>
+                                </th>
+                                <td>
+                                    <input type="checkbox" name="elements[foot]"
+                                            {{ checkbox.checked(table.settings.elements.foot) }}
+                                           id="table-elements-foot"/>
+                                    <!-- /#table-elements-foot -->
+                                </td>
+                            </tr>
+                        </table>
+                        <!-- /.form-table -->
+                    </div>
+                    <!-- /.col-sm-4 col-xs-12 -->
+                    <div class="col-sm-4 col-xs-12">
+                        <h3>{{ environment.translate('Features') }}</h3>
+                        <table class="form-table">
+                            <tr>
+                                <th scope="row">
+                                    <label for="features-auto-width">
+                                        {{ environment.translate('Auto width') }}
+                                    </label>
+                                </th>
+                                <td>
+                                    <input type="checkbox" name="features[auto_width]"
+                                            {{ checkbox.checked(table.settings.features.auto_width) }}
+                                           id="features-auto-width"/>
+                                    <!-- /#features-auto-width -->
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <label for="features-ordering">
+                                        {{ environment.translate('Ordering') }}
+                                    </label>
+                                </th>
+                                <td>
+                                    <input type="checkbox" name="features[ordering]"
+                                            {{ checkbox.checked(table.settings.features.ordering) }}
+                                           id="features-ordering"/>
+                                    <!-- /#features-ordering -->
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <label for="features-pagination">
+                                        {{ environment.translate('Pagination') }}
+                                    </label>
+                                </th>
+                                <td>
+                                    <input type="checkbox" name="features[paging]"
+                                            {{ checkbox.checked(table.settings.features.paging) }}
+                                           id="features-pagination"/>
+                                    <!-- /#features-pagination -->
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <label for="features-searching">
+                                        {{ environment.translate('Searching') }}
+                                    </label>
+                                </th>
+                                <td>
+                                    <input type="checkbox" name="features[searching]"
+                                            {{ checkbox.checked(table.settings.features.searching) }}
+                                           id="features-searching"/>
+                                    <!-- /#features-searching -->
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <label for="features-state-saving">
+                                        {{ environment.translate('Info') }}
+                                        {{ tooltip.icon(environment.translate('Table information display field.')) }}
+                                    </label>
+                                </th>
+                                <td>
+                                    <input type="checkbox" name="features[info]"
+                                            {{ checkbox.checked(table.settings.features.info) }}
+                                           id="features-state-saving"/>
+                                    <!-- /#features-state-saving -->
+                                </td>
+                            </tr>
+                        </table>
+                        <!-- /.form-table -->
+                    </div>
+                    <!-- /.col-sm-4 col-xs-12 -->
+                    <div class="col-sm-4 col-xs-12">
+                        <h3>{{ environment.translate('Styling') }}</h3>
+                        <table class="form-table">
+                            <tr>
+                                <th scope="row">
+                                    <label for="styling-border">
+                                        {{ environment.translate('Borders') }}
+                                        {{ tooltip.icon(environment.translate('Cell - adds border around all four sides of each cell, Row – adds border only over and under each row. (i.e. only for the rows).')) }}
+                                    </label>
+                                </th>
+                                <td>
+                                    <select name="styling[border]"
+                                            id="styling-border">
+                                        {% for option in [{ 'name': environment.translate('Cell'), 'value': 'cell-border' }, { 'name': environment.translate('Row'), 'value': 'row-border' }] %}
+                                            <option value="{{ option.value }}" {% if table.settings.styling.border == option.value %}selected="selected"{% endif %}>{{ option.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                    <!-- /#styling-border -->
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <label for="styling-compact">
+                                        {{ environment.translate('Compact') }}
+                                        {{ tooltip.icon(environment.translate('Reduce the amount of white-space.')) }}
+                                    </label>
+                                </th>
+                                <td>
+                                    <input type="checkbox"
+                                           name="styling[compact]"
+                                            {{ checkbox.checked(attribute(table.settings.styling, 'compact')) }}
+                                           id="styling-compact"/>
+                                    <!-- /#styling-compact -->
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <label for="styling-hover">
+                                        {{ environment.translate('Highlighting') }}
+                                        {{ tooltip.icon(environment.translate('Row highlighting on mouse over.')) }}
+                                    </label>
+                                </th>
+                                <td>
+                                    <input type="checkbox" name="styling[hover]"
+                                           {{ checkbox.checked(attribute(table.settings.styling, 'hover')) }}
+                                           id="styling-hover"/>
+                                    <!-- /#styling-hover -->
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <label for="styling-nowrap">
+                                        {{ environment.translate('Disable wrapping') }}
+                                        {{ tooltip.icon(environment.translate('Disable wrapping of content in the table, so all text in the cells is on a single line.')) }}
+                                    </label>
+                                </th>
+                                <td>
+                                    <input type="checkbox"
+                                           name="styling[nowrap]"
+                                           {{ checkbox.checked(attribute(table.settings.styling, 'nowrap')) }}
+                                           id="styling-nowrap"/>
+                                    <!-- /#styling-nowrap -->
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <label for="styling-order-column">
+                                        {{ environment.translate('Highlight the order column') }}
+                                        {{ tooltip.icon('Highlight the column that the table data is currently ordered on.') }}
+                                    </label>
+                                </th>
+                                <td>
+                                    <input type="checkbox"
+                                           name="styling[order-column]"
+                                           {{ checkbox.checked(attribute(table.settings.styling, 'order-column')) }}
+                                           id="styling-order-column"/>
+                                    <!-- /#styling-order-column -->
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <label for="styling-stripe">
+                                        {{ environment.translate('Row striping') }}
+                                    </label>
+                                </th>
+                                <td>
+                                    <input type="checkbox"
+                                           name="styling[stripe]"
+                                           {{ checkbox.checked(attribute(table.settings.styling, 'stripe')) }}
+                                           id="styling-stripe"/>
+                                    <!-- /#styling-stripe -->
+                                </td>
+                            </tr>
+                        </table>
+                        <!-- /.form-table -->
+                    </div>
+                    <!-- /.col-sm-4 col-xs-12 -->
+                </div>
+            </form>
+            <div class="row row-tab" id="row-tab-preview">
+                <div class="col-xs-12">
+                    <div id="table-preview">
+                    </div>
+                    <!-- /#table-preview -->
+                    <p class="description">
+                        <i class="fa fa-fw fa-exclamation-circle"></i>
+                        <!-- /.fa fa-fw fa-exclamation-circle -->
+                        {{ environment.translate('Note that the table may be minor changes to the style that has your theme.') }}
+                    </p>
+                    <!-- /.description -->
+                </div>
+                <!-- /.col-xs-12 -->
+            </div>
+            <!-- /.row row-tab -->
+            <div class="row row-tab" id="row-tab-css">
+                <div class="col-xs-12">
+                    {% set defaultCss %}
+/* Here you can add custom CSS for the current table */
+/* Lean more about CSS: https://en.wikipedia.org/wiki/Cascading_Style_Sheets */
+
+/* To prevent the use of styles to other tables use "#supsystic-table-{{ table.id }}" as a base selector
+for example:
+#supsystic-table-{{ table.id }} { ... }
+#supsystic-table-{{ table.id }} tbody { ... }
+#supsystic-table-{{ table.id }} tbody tr { ... }
+*/
+                    {% endset %}
+                    <div id="css-editor">{% if table.meta.css | length > 0 %}{{ table.meta.css }}{% else %}{{ defaultCss }}{% endif %}</div>
+                </div>
+            </div>
+        </div>
+        <!-- /.container-fluid -->
+    </div>
+    <!-- /.supsystic-item -->
+{% endblock %}

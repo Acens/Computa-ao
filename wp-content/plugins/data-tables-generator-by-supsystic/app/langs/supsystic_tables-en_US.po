@@ -1,0 +1,168 @@
+msgid ""
+msgstr ""
+
+msgid "An error has occurred"
+msgstr ""
+
+msgid "Add new table"
+msgstr ""
+
+msgid "Tables"
+msgstr ""
+
+msgid "The table with ID %d not exists."
+msgstr ""
+
+msgid "Title"
+msgstr ""
+
+msgid "Created"
+msgstr ""
+
+msgid "Shortcode"
+msgstr ""
+
+msgid "PHP"
+msgstr ""
+
+msgid "Actions"
+msgstr ""
+
+msgid "You have not any tables in this time."
+msgstr ""
+
+msgid "Create your first table"
+msgstr ""
+
+msgid "Edit table \"%s\""
+msgstr ""
+
+msgid "Table title"
+msgstr ""
+
+msgid "Columns"
+msgstr ""
+
+msgid "Rows"
+msgstr ""
+
+msgid "Click to rename the table and hit [Enter]"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid "Editor"
+msgstr ""
+
+msgid "Preview"
+msgstr ""
+
+msgid "Loading your table, please wait..."
+msgstr ""
+
+msgid "Bold"
+msgstr ""
+
+msgid "Italic"
+msgstr ""
+
+msgid "Text color"
+msgstr ""
+
+msgid "Background color"
+msgstr ""
+
+msgid "Alignment"
+msgstr ""
+
+msgid "Vertical alignment"
+msgstr ""
+
+msgid "Table elements"
+msgstr ""
+
+msgid "Caption"
+msgstr ""
+
+msgid "Header"
+msgstr ""
+
+msgid "Footer"
+msgstr ""
+
+msgid "Features"
+msgstr ""
+
+msgid "Auto width"
+msgstr ""
+
+msgid "Ordering"
+msgstr ""
+
+msgid "Pagination"
+msgstr ""
+
+msgid "Searching"
+msgstr ""
+
+msgid "State saving"
+msgstr ""
+
+msgid "State saving - restore table state on page reload."
+msgstr ""
+
+msgid "Info"
+msgstr ""
+
+msgid "Table information display field."
+msgstr ""
+
+msgid "Styling"
+msgstr ""
+
+msgid "Borders"
+msgstr ""
+
+msgid "Cell - adds border around all four sides of each cell, Row – adds border only over and under each row. (i.e. only for the rows)."
+msgstr ""
+
+msgid "Cell"
+msgstr ""
+
+msgid "Row"
+msgstr ""
+
+msgid "Compact"
+msgstr ""
+
+msgid "Reduce the amount of white-space."
+msgstr ""
+
+msgid "Highlighting"
+msgstr ""
+
+msgid "Row highlighting on mouse over."
+msgstr ""
+
+msgid "Disable wrapping"
+msgstr ""
+
+msgid "Disable wrapping of content in the table, so all text in the cells is on a single line."
+msgstr ""
+
+msgid "Highlight the order column"
+msgstr ""
+
+msgid "Row striping"
+msgstr ""
+
+msgid "Note that the table may be minor changes to the style that has your theme."
+msgstr ""
+

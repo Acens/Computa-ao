@@ -1,0 +1,74 @@
+#tableEditor {
+  width: 100%;
+  /* Cell states */
+}
+#tableEditor .colHeader {
+  cursor: pointer;
+}
+#tableEditor .ht_clone_left .wtHolder {
+  overflow: hidden;
+}
+#tableEditor .bold {
+  font-weight: bold;
+}
+#tableEditor .italic {
+  font-style: italic;
+}
+/* Toolbar */
+#tableToolbar {
+  background-color: #e2dfdf;
+  border: 1px solid #cac4c4;
+  padding: 3px;
+  margin-bottom: 5px;
+}
+#tableToolbar > ul {
+  margin: 0;
+  display: inline;
+}
+#tableToolbar > ul > li {
+  margin: 0;
+  display: inline;
+}
+#tableToolbar > ul > li .toolbar-content {
+  display: none;
+}
+#tableToolbar > ul:after {
+  content: "|";
+  color: #d6d2d2;
+  font-size: 36px;
+  position: relative;
+  top: 3px;
+  font-weight: 100;
+}
+#tableToolbar button {
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: 5px;
+}
+#tableToolbar button:hover {
+  border: 1px solid #cac4c4;
+  -webkit-box-shadow: 1px 1px 0 #beb7b7;
+  -moz-box-shadow: 1px 1px 0 #beb7b7;
+  box-shadow: 1px 1px 0 #beb7b7;
+}
+/* Toolbar Dropdown */
+.tool-container .tool-items .tool-item i {
+  margin-top: 11px;
+  color: #333;
+}
+/* Formula editor */
+#formulaEditor .formula-icon {
+  float: left;
+  font-size: .8em;
+  width: 50px;
+  text-align: center;
+  margin-top: 8px;
+}
+#formulaEditor .formula-icon .function {
+  font-family: "Inconsolata", "Fira Mono", "Source Code Pro", Monaco, Consolas, "Lucida Console", monospace;
+  font-size: 1.3em;
+}
+#formulaEditor #formula {
+  float: left;
+  font-family: "Inconsolata", "Fira Mono", "Source Code Pro", Monaco, Consolas, "Lucida Console", monospace;
+}

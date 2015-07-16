@@ -1,0 +1,66 @@
+.tables-view .table-title-wrap {
+  margin-bottom: 15px;
+}
+.tables-view .table-title-wrap .table-title {
+  float: left;
+}
+.tables-view .table-title-wrap .table-buttons {
+  float: left;
+  margin-top: 8px;
+}
+.tables-view .table-title-wrap .table-buttons .button {
+  margin-left: 5px;
+}
+.tables-view .table-title-wrap .table-buttons > .table-buttons-left {
+  float: left;
+}
+.tables-view .table-title-wrap .table-buttons > .table-buttons-right {
+  float: right;
+}
+.tables-view .form-table label i.fa-question-circle {
+  color: #a4aaac;
+}
+.tables-view .form-table label i.fa-question-circle:hover {
+  color: #333;
+}
+.tables-view .row-tab {
+  display: none;
+  margin-top: 15px;
+}
+.tables-view .subsubsub {
+  border-bottom: 1px solid #ccc;
+  padding-left: 16px;
+  width: 100%;
+}
+.tables-view .subsubsub li {
+  margin-bottom: -1px;
+  margin-left: -1px;
+}
+.tables-view .subsubsub li a.button {
+  background-color: #eee;
+  border-color: #ccc !important;
+  color: #000 !important;
+  font-weight: bold;
+}
+.tables-view .subsubsub li a.button.current {
+  background-color: #fff;
+  border-bottom-color: #fff !important;
+}
+.tables-view .subsubsub li a.button.current:hover,
+.tables-view .subsubsub li a.button.current:active,
+.tables-view .subsubsub li a.button.current:focus {
+  background-color: #fff !important;
+}
+.tables-view .subsubsub li a.button:hover,
+.tables-view .subsubsub li a.button:active,
+.tables-view .subsubsub li a.button:focus {
+  background-color: #ccc !important;
+  outline: none !important;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.tables-view #css-editor {
+  position: relative;
+  height: 200px;
+}
