@@ -653,7 +653,8 @@ input[type="search"].search-field:focus{ outline: none;}
     display: inline-block;
     text-align: center;
     line-height: 32px;
-    background: rgba(224, 224, 224, 0.5);
+    z-index: 10;
+    background: rgba(200, 160, 210, 0.7);
     /* border: 1px solid rgb(224, 224, 224); */
     color: rgb(216, 216, 216);
     border-radius: 100%;

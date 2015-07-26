@@ -12,10 +12,28 @@ get_header(); ?>
         <?php if (of_get_option('ares_slider_bool', 'yes') == 'yes') echo ares_slider(); ?>
         
         <?php if( of_get_option('ares_cta_header_one', TRUE) ) : ?>
+        
         <div class="center relative" id="main-heading">
             <div class="row">
                 <h3 id="" class="animated fadeInLeft"><span><?php echo esc_attr( of_get_option('ares_cta_header_one', 'Modern design, Responsive layout') );?></span></h3>
             </div>
+        </div>
+        <div class="frontpage row">
+        <?php while (have_posts()) : the_post(); ?>
+            <?php
+            if( 'yes' == of_get_option('ares_frontpage_content_bool', 'yes') ) :
+                if ('posts' == get_option('show_on_front') ) {
+                    get_template_part('content', 'posts');
+                } else {
+                    get_template_part('content', 'page');
+                }                
+            endif;
+            // If comments are open or we have at least one comment, load up the comment template
+            if (comments_open() || '0' != get_comments_number()) :
+                comments_template();
+            endif;
+            ?>
+        <?php endwhile; // end of the loop.   ?>
         </div>
         <?php endif; ?>        
         
@@ -37,25 +55,6 @@ get_header(); ?>
         <?php if(is_active_sidebar('sidebar-homepage-widget')) :?>
             <?php echo ares_homepage_widget(); ?>
         <?php endif; ?>
-        
-        
-        <div class="frontpage row">
-        <?php while (have_posts()) : the_post(); ?>
-            <?php
-            if( 'yes' == of_get_option('ares_frontpage_content_bool', 'yes') ) :
-                if ('posts' == get_option('show_on_front') ) {
-                    get_template_part('content', 'posts');
-                } else {
-                    get_template_part('content', 'page');
-                }                
-            endif;
-            // If comments are open or we have at least one comment, load up the comment template
-            if (comments_open() || '0' != get_comments_number()) :
-                comments_template();
-            endif;
-            ?>
-        <?php endwhile; // end of the loop.   ?>
-        </div>
     </div>
 </div>
 <?php get_footer(); ?>

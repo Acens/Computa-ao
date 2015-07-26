@@ -369,6 +369,7 @@ function ares_close() { ?>
                         <?php echo of_get_option('ares_footer_button_text', 'CONTACT OUR OFFICE'); ?>
                     </a>
                 </div>
+            
             </div>
         </div>
     
