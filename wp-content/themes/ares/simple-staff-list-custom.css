@@ -1,0 +1,11 @@
+div.staff-member:hover
+{opacity:0.75;
+ -moz-opacity: 0.75;
+ filter: alpha(opacity=75);
+ -webkit-filter: opacity(0.75);
+ /*filtro P/B*/ 
+ filter: gray; /* IE6-9 */
+ -webkit-filter: grayscale(100%); /* Chrome 19+ & Safari 6+ */
+ /*qualidade*/
+ image-rendering: auto;
+}
