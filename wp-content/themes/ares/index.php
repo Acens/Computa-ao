@@ -12,7 +12,6 @@
  */
 get_header();
 ?>
-
 <div id="content" class="site-content-wrapper <?php echo esc_attr( of_get_option('ares_theme_background_pattern','crossword') ); ?>">
     <div class="page-content row">
         <div class="col-md-9  site-content item-page <?php echo esc_attr( of_get_option('sc_blog_layout') ); ?>">

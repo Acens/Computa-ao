@@ -70,7 +70,7 @@ a.button-primary{
 }
 /*-- Logo --*/
 #sc_logo{
-    max-height: 60px;
+    max-height: 100px; /*60px*/
 }
 /*-- Toolbar --*/
 #site-toolbar{
@@ -135,12 +135,16 @@ a.button-primary{
 
 .no_toolbar .site-branding{
     top: 0;
+    height: 103px;/*Off*/
+    border-bottom: 1px solid #dadada;/*Off*/
 }
 .logged-in .site-branding{
     top: 72px;
 }
 .logged-in .no_toolbar .site-branding{
     top: 32px;
+    border-bottom: 1px solid #dadada;
+    height: 103px;
 }
 .site-branding{
     /*margin-top: 75px;*/
