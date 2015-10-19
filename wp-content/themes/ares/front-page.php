@@ -9,9 +9,10 @@ get_header(); ?>
 <div class="site-content-wrapper <?php echo esc_attr( of_get_option('ares_theme_background_pattern','crossword') ); ?>">
     <div id="" class="page-content frontpage">
 
-        <?php if (of_get_option('ares_slider_bool', 'yes') == 'yes') echo ares_slider(); ?>
+     	<?php if (of_get_option('ares_slider_bool', 'yes') == 'yes') echo ares_slider(); ?>
+	<?php /*if (of_get_option('ares_slider_bool', 'yes') == 'yes') echo do_shortcode('[advps-slideshow optset="1"]');*/ ?> 
         
-        <?php if( of_get_option('ares_cta_header_one', TRUE) ) : ?>
+	<?php if( of_get_option('ares_cta_header_one', TRUE) ) : ?>
         
         <div class="center relative" id="main-heading">
             <div class="row">
