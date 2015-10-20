@@ -451,7 +451,7 @@
 }
 .camera_prevThumbs, .camera_nextThumbs, .camera_prev, .camera_next, .camera_commands, .camera_thumbs_cont {
 	background: #d8d8d8;
-	background: rgba(216, 216, 216, 0.85);
+	background: rgba(227, 179, 42, 0.8);
 }
 .camera_wrap .camera_pag .camera_pag_ul li {
 	background: #b7b7b7;

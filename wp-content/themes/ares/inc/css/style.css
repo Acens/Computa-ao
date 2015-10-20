@@ -136,14 +136,15 @@ a.button-primary{
 .no_toolbar .site-branding{
     top: 0;
     height: 103px;/*Off*/
-    border-bottom: 1px solid #dadada;/*Off*/
+    border-bottom: 1px solid #1B63AD;/*Off*/
+    /*box-shadow: 0 0 15px #262626;*/
 }
 .logged-in .site-branding{
     top: 72px;
 }
 .logged-in .no_toolbar .site-branding{
     top: 32px;
-    border-bottom: 1px solid #dadada;
+    border-bottom: 1px solid #1B63AD;
     height: 103px;
 }
 .site-branding{
@@ -531,7 +532,7 @@ article.sidebar-off{
     /*padding-top: 30px;*/
 }
 .frontpage .item-post{
-    margin-bottom: 0;
+    margin-bottom: 20px;
     margin-top: 20px;
 }
 .homepage-content{
@@ -620,8 +621,8 @@ article.sidebar-off{
     color: #777;
     background: rgb(29, 29, 29);
     z-index: 99;
-    box-shadow: 0 1px 5px rgb(151, 151, 151);
-    -webkit-box-shadow: 0 1px 5px rgb(151, 151, 151) inset;
+    /*box-shadow: 0 1px 5px rgb(151, 151, 151);*/
+    /*-webkit-box-shadow: 0 1px 5px rgb(151, 151, 151) inset;*/
 }
 .site-footer .site-info{
     background: #0D0D0D;
@@ -658,9 +659,9 @@ input[type="search"].search-field:focus{ outline: none;}
     text-align: center;
     line-height: 32px;
     z-index: 10;
-    background: rgba(200, 160, 210, 0.7);
+    background: rgba(227, 179, 42, 0.7);
     /* border: 1px solid rgb(224, 224, 224); */
-    color: rgb(216, 216, 216);
+    color: rgb(256, 256, 256);
     border-radius: 100%;
     cursor: pointer;
     transition: 0.2s all ease-in-out;

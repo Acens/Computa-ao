@@ -6,17 +6,17 @@
         Purpose of the stylesheet follows.
 */
 a,a:visited {
-  color: #83CBDC;
+  color: #1B63AD;
 }
 a:hover{
     color: #57A9BD;
 }
-.primary-color{ color: #83CBDC;}
+.primary-color{ color: #1B63AD;}
 #site-cta .site-cta .fa.hover{
-    background: #83CBDC;    
+    background: #1B63AD;    
 }
 a.button-primary {
-    background-color: #83CBDC;
+    background-color: #1B63AD;
     color: #ffffff;
 }
 .button-primary:hover,
@@ -27,40 +27,40 @@ a.button-primary {
   background-color: #57A9BD;
 }
 fieldset[disabled] .button-primary.active {
-  background-color: #83CBDC;
+  background-color: #1B63AD;
 }
 
 #main-heading,
 #secondary-heading{
-    background: #83CBDC;
+    background: #1B63AD;
     color: #fff;
 }
 .button-primary .badge {
-  color: #83CBDC;
+  color: #1B63AD;
 }
 .button-link {
-  color: #83CBDC;
+  color: #1B63AD;
 }
-.sc-primary-color{ color: #83CBDC;}
-.sc-primary-border{ border-color: #83CBDC;}
+.sc-primary-color{ color: #1B63AD;}
+.sc-primary-border{ border-color: #1B63AD;}
 .site-branding .search-bar .search-field:focus{
-    border-bottom: 1px solid #83CBDC;
+    border-bottom: 1px solid #1B63AD;
 }
 .icon404{
-    color: #83CBDC;
+    color: #1B63AD;
 }
 .nav-menu > li a:hover{
-    color: #83CBDC;
+    color: #1B63AD;
 }
 .scroll-top:hover{
-    border-color: #83CBDC;
+    border-color: #1B63AD;
 }
 
 ul.social-icons li a:hover{
-    background: #83CBDC;
+    background: #1B63AD;
 }
 .smartcat_team_member:hover h4{
-    color: #83CBDC;
+    color: #1B63AD;
     
 }
 .smartcat_team_member:hover img{
@@ -70,22 +70,22 @@ ul.social-icons li a:hover{
 }
 
 #site-toolbar .row .social-bar a:hover{
-    background: #83CBDC;
+    background: #1B63AD;
 }
 #site-navigation.main-navigation li a:hover,
 #site-navigation.main-navigation li.current_page_item a{
-    color: #83CBDC;
+    color: #1B63AD;
 }
 #site-cta .site-cta .fa{
-    border: 2px solid #83CBDC;
-    color: #83CBDC;
+    border: 2px solid #1B63AD;
+    color: #1B63AD;
 }
 @media(max-width: 600px){
     .nav-menu > li.current_page_item a{
-        color: #83CBDC;
+        color: #1B63AD;
     }      
 }
 
 #footer-callout{
-    background: #83CBDC;
+    background: #1B63AD;
 }
