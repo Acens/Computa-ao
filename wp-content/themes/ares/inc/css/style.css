@@ -660,7 +660,7 @@ input[type="search"].search-field:focus{ outline: none;}
     text-align: center;
     line-height: 32px;
     z-index: 10;
-    background: rgba(227, 179, 42, 0.7);
+    background: rgba(227, 179, 42, 0.8);
     /* border: 1px solid rgb(224, 224, 224); */
     color: rgb(256, 256, 256);
     border-radius: 100%;
