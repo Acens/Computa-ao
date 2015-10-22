@@ -13,7 +13,8 @@ a:hover{
 }
 .primary-color{ color: #1B63AD;}
 #site-cta .site-cta .fa.hover{
-    background: #1B63AD;    
+    background: #1B63AD;
+    box-shadow: 0 10px 10px 0px #333;    
 }
 a.button-primary {
     background-color: #1B63AD;
@@ -34,6 +35,7 @@ fieldset[disabled] .button-primary.active {
 #secondary-heading{
     background: #1B63AD;
     color: #fff;
+    box-shadow: 0 0 15px #333;
 }
 .button-primary .badge {
   color: #1B63AD;

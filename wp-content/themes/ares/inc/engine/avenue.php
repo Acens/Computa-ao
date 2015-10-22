@@ -279,7 +279,7 @@ function ares_ctas() { ?>
         
         <div class="col-md-4 site-cta smartcat-animate fadeInUp">
             <div class="center">
-                <i class="<?php echo esc_attr( of_get_option('ares_cta1_icon', 'fa fa-gears') ); ?> animated"></i>
+                <a href="<?php echo esc_attr( of_get_option('ares_cta1_url') ) ?>" class="" target="_blank"><i class="<?php echo esc_attr( of_get_option('ares_cta1_icon', 'fa fa-gears') ); ?> animated"></i></a>
             </div>
                 
             <h3><?php echo esc_attr( of_get_option('ares_cta1_title', 'THEME OPTIONS') ); ?></h3>
@@ -293,7 +293,7 @@ function ares_ctas() { ?>
         </div>
             <div class="col-md-4 site-cta smartcat-animate fadeInUp">
                 <div class="center">
-                    <i class="<?php echo esc_attr( of_get_option('ares_cta2_icon', 'fa fa-mobile') ); ?>"></i>
+                    <a href="<?php echo esc_attr( of_get_option('ares_cta2_url') ) ?>" class="" target="_blank"><i class="<?php echo esc_attr( of_get_option('ares_cta2_icon', 'fa fa-mobile') ); ?>"></i></a>
                 </div>
 
                 <h3><?php echo of_get_option('ares_cta2_title', 'Responsive Layout') ?></h3>
@@ -307,7 +307,7 @@ function ares_ctas() { ?>
             </div>
             <div class="col-md-4 site-cta smartcat-animate fadeInUp">
                 <div class="center">
-                    <i class="<?php echo esc_attr( of_get_option('ares_cta3_icon', 'fa fa-leaf') ); ?>"></i>
+                    <a href="<?php echo esc_attr( of_get_option('ares_cta3_url') ) ?>" class="" target="_blank"><i class="<?php echo esc_attr( of_get_option('ares_cta3_icon', 'fa fa-leaf') ); ?>"></i></a>
                 </div>
 
                 <h3><?php echo of_get_option('ares_cta3_title', 'ELEGANT DESIGN') ?></h3>
